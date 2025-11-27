@@ -21,7 +21,12 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  /* IMPORTANT: auto hide after 1.5s */
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  animation: fadeOutLoader 1.5s ease 1.5s forwards;
 }
 
 #preloader.hide {
@@ -419,6 +424,14 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes fadeOutLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
