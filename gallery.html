@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factory Gallery | Plastophobia</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="loader-logo">
+      <div class="loader-circle"></div>
+      <span class="loader-icon">♻</span>
+    </div>
+    <p class="loader-text">Recycling visuals…</p>
+  </div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Plastophobia</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <h1>Factory Gallery</h1>
+      <p>From bottles to flakes – take a walk inside our unit.</p>
+    </section>
+
+    <section class="page-section">
+      <div class="gallery-grid-strong">
+        <div class="g-item">
+          <img src="factory 1.jpg" alt="Factory view 1">
+          <div class="g-overlay">
+            <span>Grinding Unit</span>
+          </div>
+        </div>
+        <div class="g-item">
+          <img src="factory 2.jpg" alt="Factory view 2">
+          <div class="g-overlay">
+            <span>Processed Flakes</span>
+          </div>
+        </div>
+        <!-- You can add more images later -->
+      </div>
+    </section>
+
+    <!-- VIDEO BLOCK (later you can change src) -->
+    <section class="page-section video-block">
+      <h2>In Motion</h2>
+      <p>Watch our grinder in action.</p>
+      <div class="video-frame hover-glow">
+        <video src="factory-video.mp4" muted autoplay loop playsinline></video>
+      </div>
+      <p class="video-note">Replace <code>factory-video.mp4</code> with your actual file name.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© Plastophobia – Reshaping the Planet</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
