@@ -503,3 +503,10 @@ body {
     margin-right: 14px;
   }
 }
+.social-row a {
+    text-decoration: none !important;
+}
+.social-row a:focus,
+.social-row a:active {
+    outline: none;
+}
