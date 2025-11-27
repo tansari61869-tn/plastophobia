@@ -6,10 +6,11 @@
 }
 
 body {
-  background: #0d0d0d;
-  color: #fff;
+  background: #ffffff;   /* full site base white */
+  color: #111111;
   scroll-behavior: smooth;
 }
+
 
 /* PRELOADER */
 #preloader {
@@ -63,10 +64,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(5, 5, 5, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+
 
 .nav-inner {
   max-width: 1100px;
@@ -130,8 +132,9 @@ body {
 .hero-overlay-light {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.5);
 }
+
 
 .hero-content {
   position: relative;
@@ -510,3 +513,105 @@ body {
 .social-row a:active {
     outline: none;
 }
+/* IMPACT SECTION (ABOUT PAGE) */
+.impact {
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.impact-text {
+  max-width: 620px;
+}
+
+.impact-text h2 {
+  font-size: 28px;
+  color: #2e7d32;
+}
+
+.impact-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.impact-list {
+  margin-top: 14px;
+  padding-left: 20px;
+  color: #444;
+}
+
+.impact-list li {
+  margin-bottom: 6px;
+}
+
+.impact-subtitle {
+  margin-top: 22px;
+  font-size: 18px;
+  color: #111;
+}
+
+/* metric cards row */
+.impact-metrics {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.metric-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #777;
+}
+
+.metric-value {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.metric-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #666;
+}
+
+.impact-poetic {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #333;
+}
+
+/* right side image */
+.impact-visual img {
+  width: 100%;
+  max-height: 420px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+  .impact {
+    gap: 24px;
+  }
+
+  .impact-visual img {
+    max-height: 320px;
+  }
+}
+
