@@ -15,8 +15,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('https://i.ibb.co/1b8pKq2/recycle-bg.jpg') center/cover no-repeat;
-    display: flex;
+background: url('https://images.unsplash.com/photo-1581090464777-7eec7d8be8f8?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -155,3 +154,4 @@ body {
     from {opacity: 0; transform: translateY(30px);}
     to {opacity: 1; transform: translateY(0);}
 }
+
