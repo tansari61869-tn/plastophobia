@@ -34,12 +34,16 @@ body {
   text-align: center;
 }
 
-.loader-logo-img {
+.loader-video {
   width: 260px;
   max-width: 70vw;
+  border-radius: 18px;
+  overflow: hidden;
   animation: logoPulse 1.6s ease-in-out infinite;
-  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.18));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  object-fit: cover;
 }
+
 
 .loader-caption {
   margin-top: 18px;
@@ -48,6 +52,7 @@ body {
   text-transform: uppercase;
   color: #2e7d32;
   opacity: 0.8;
+  text-align: center;
 }
 
 @keyframes logoPulse {
@@ -446,6 +451,48 @@ body {
 .contact-card i:hover {
   transform: scale(1.25);
   filter: drop-shadow(0 0 14px rgba(0, 255, 157, 1));
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.contact-btn {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #111;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.icon {
+  font-size: 45px;
+  padding: 18px;
+  border-radius: 20px;
+  background: #f2f2f2;
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+
+/* Animations */
+.contact-btn:hover .icon {
+  transform: scale(1.2) rotate(8deg);
+  background: #111;
+  color: #fff;
+}
+
+.contact-btn:hover span {
+  color: #111;
+  font-weight: 600;
+}
+
+span {
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .social-row {

@@ -7,10 +7,10 @@
 
   <meta name="description" content="Reach Plastophobia for PET bottle recycling, industrial plastic waste pickup, and bulk PET flakes supply. Based in Chennai, serving surrounding regions.">
 
-  <!-- MAIN CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- FONT AWESOME – CORRECT LINK (VERY IMPORTANT) -->
+  <!-- Font Awesome – CORRECT LINK (icons kaaga idhu must) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaElAIBl7OC6xalwE5w9c2QQeAft1+VegovIneelc9QX4TctnWmn13TZye+giMm8e2LwA=="
@@ -21,14 +21,14 @@
 
 <body>
 
- <!-- PRELOADER – Animated Logo -->
-<div id="preloader">
-  <div class="loader-inner">
-    <img src="hero.jpg" alt="Plastophobia Logo" class="loader-logo-img">
-    <p class="loader-caption">Reshaping the planet…</p>
+  <!-- PRELOADER – recycle loader for inner pages -->
+  <div id="preloader" class="preloader preloader-recycle">
+    <div class="recycle-loader">
+      <div class="recycle-ring"></div>
+      <div class="recycle-ring recycle-ring-2"></div>
+      <span class="recycle-icon">♻️</span>
+    </div>
   </div>
-</div>
-
 
   <!-- NAVBAR -->
   <header class="nav">
@@ -44,30 +44,36 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTACT CONTENT -->
   <main>
-
     <section class="contact-section">
       <h2>Contact Us</h2>
       <p class="contact-sub">For orders, partnerships &amp; bulk supply.</p>
 
-      <!-- PHONE / MAIL / LOCATION -->
-      <div class="contact-details">
-        <p>
-          <i class="fa-solid fa-phone"></i>
-          8870515082
-        </p>
-        <p>
-          <i class="fa-solid fa-envelope"></i>
-          ashiqash2010@gmail.com
-        </p>
-        <p>
-          <i class="fa-solid fa-location-dot"></i>
-          Chennai, Tamil Nadu
-        </p>
-      </div>
+      <div class="contact-buttons">
 
-      <!-- SOCIAL ICONS -->
+  <!-- Gmail -->
+  <a href="mailto:ashiqash2010@gmail.com" class="contact-btn">
+    <div class="icon gmail-icon">📧</div>
+    <span>Mail</span>
+  </a>
+
+  <!-- Phone -->
+  <a href="tel:8870515082" class="contact-btn">
+    <div class="icon phone-icon">📞</div>
+    <span>Call</span>
+  </a>
+
+  <!-- Location -->
+  <a href="https://maps.app.goo.gl/smRj2Tq1Jd5kxWDh9" target="_blank" class="contact-btn">
+    <div class="icon location-icon">📍</div>
+    <span>Location</span>
+  </a>
+
+</div>
+
+
+      <!-- Social icons row -->
       <h3 class="connect-title">Connect With Us</h3>
 
       <div class="social-icons">
@@ -89,7 +95,6 @@
 
       <p class="footer-copy">© Plastophobia – Reshaping the Planet</p>
     </section>
-
   </main>
 
   <script src="script.js"></script>
