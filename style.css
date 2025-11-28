@@ -469,6 +469,105 @@ body {
   font-size: 18px;
   transition: 0.3s ease;
 }
+/* CONNECT WITH US – animated social dots */
+
+.connect-wrapper {
+  margin: 30px 0 10px;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.connect-dot {
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #ffffff, #c6ffd9);
+  box-shadow: 0 0 25px rgba(0, 255, 120, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #0a8a3d;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  animation: float-bob 3s ease-in-out infinite alternate,
+             soft-glow 2.8s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* subtle inner shine */
+.connect-dot::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.65), transparent 60%);
+  opacity: 0.6;
+  transform: translate(-15%, -15%);
+}
+
+/* brand-ish tint variations */
+.connect-dot.ig {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #ffd2ff);
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.55);
+}
+
+.connect-dot.li {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #d4f1ff);
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.55);
+}
+
+.connect-dot.wa {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #c6ffd9);
+  box-shadow: 0 0 25px rgba(0, 255, 120, 0.55);
+}
+
+/* hover love */
+.connect-dot:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 180, 90, 0.75);
+}
+
+/* float animation */
+@keyframes float-bob {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.03);
+  }
+}
+
+/* breathing glow */
+@keyframes soft-glow {
+  0% {
+    opacity: 0.9;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0.3px);
+  }
+}
+
+/* mobile tweak */
+@media (max-width: 600px) {
+  .connect-wrapper {
+    gap: 22px;
+  }
+
+  .connect-dot {
+    width: 60px;
+    height: 60px;
+    font-size: 13px;
+  }
+}
+
 
 .icon {
   font-size: 45px;
