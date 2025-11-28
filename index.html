@@ -1,235 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plastophobia | PET Bottle Recycling & Plastic Reprocessing in Chennai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastophobia | Turning Waste Into Worth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #2e7d32; --primary-dark: #1b5e20; --dark: #111111; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #fff; color: var(--dark); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
 
-  <meta name="description" content="Plastophobia is a PET bottle recycling initiative based in Chennai. We collect, grind and recycle plastic waste into high-quality PET flakes, reducing CO₂ emissions and landfill pollution.">
-  <meta name="keywords" content="PET recycling Chennai, plastic grinding, PET flakes supplier, plastic recycling plant, recycled plastic, Plastophobia">
-  <meta name="author" content="Plastophobia">
+        /* --- PRELOADER (FIXED) --- */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #preloader img {
+            width: 300px;
+            max-width: 80%;
+            /* Animation for breathing effect */
+            animation: breathe 2s infinite ease-in-out;
+        }
+        /* Fallback text if image misses */
+        #preloader::after {
+            content: 'Loading...';
+            position: absolute;
+            bottom: 20%;
+            font-size: 14px;
+            color: #555;
+            letter-spacing: 2px;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        /* Class to hide loader */
+        .loaded #preloader {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Plastophobia – Turning Waste Into Worth">
-  <meta property="og:description" content="We recycle PET bottles into clean PET flakes, saving CO₂, water and land from plastic pollution.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-domain.com/">
-  <meta property="og:image" content="https://your-domain.com/hero.jpg">
+        /* Navbar */
+        .navbar { position: fixed; top: 0; width: 100%; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; font-size: 15px; position: relative; color: #333; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .hamburger { display: none; font-size: 24px; cursor: pointer; }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Plastophobia – PET Bottle Recycling in Chennai">
-  <meta name="twitter:description" content="15+ tonnes of PET bottles already recycled. Join us in reshaping the planet.">
-  <meta name="twitter:image" content="https://your-domain.com/hero.jpg">
+        /* Hero */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.6); }
+        .hero-content h1 { font-size: 60px; font-weight: 800; margin-bottom: 20px; }
+        .btn-main { padding: 15px 40px; background: var(--primary); color: white; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .btn-main:hover { transform: translateY(-5px); background: var(--primary-dark); }
 
-  <link rel="stylesheet" href="style.css">
+        /* Stats & Footer */
+        .stats-section { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; background: white; margin-top: -50px; position: relative; z-index: 10; border-radius: 20px 20px 0 0; }
+        .stat-card { padding: 40px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 20px; background: white; }
+        .stat-number { font-size: 40px; font-weight: 800; color: var(--primary); }
+        footer { background: #0a0a0a; color: white; padding: 60px 10% 20px; text-align: center; }
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+        @media(max-width: 768px) { .nav-links { display: none; } .hamburger { display: block; } .hero-content h1 { font-size: 40px; } }
+    </style>
 </head>
 <body>
 
-  <!-- PRELOADER (PNG version) -->
-  <div id="preloader">
-    <div class="loader-inner">
-      <img src="logo-loader.png" class="loader-video" alt="Plastophobia Loader">
-      <!-- optional: <p class="loader-caption">Reshaping the planet…</p> -->
-    </div>
-  </div>
-
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">Plastophobia</a>
-      <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO – VIDEO -->
-  <section class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="nature-video.mp4" type="video/mp4">
-    </video>
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <h1>Turning Waste Into Worth</h1>
-      <p>Plastophobia ♻ Reshaping the Planet</p>
-      <a href="gallery.html" class="btn">Explore Our Work</a>
-    </div>
-  </section>
-
-  <!-- SHORT ABOUT SECTION -->
-  <section class="about home-about">
-    <h2>We Transform Plastic Into Possibility</h2>
-    <p>
-      Plastophobia is a next–gen recycling initiative that turns discarded plastic into
-      purposeful products. From grinding to moulding, every step in our factory is tuned
-      for sustainability and durability.
-    </p>
-
-    <div class="about-cards">
-      <div class="about-card">
-        <h3>Responsible</h3>
-        <p>We divert plastic from landfills and channel it into high–value applications.</p>
-      </div>
-      <div class="about-card">
-        <h3>Reliable</h3>
-        <p>Industrial–grade grinding, consistent quality and trusted by partners.</p>
-      </div>
-      <div class="about-card">
-        <h3>Ready to Scale</h3>
-        <p>Designed to grow with builders, brands and eco–conscious projects.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects-section" id="projects">
-    <div class="projects-header">
-      <h2>Our Impact Projects</h2>
-      <p>Turning discarded PET waste into meaningful environmental change.</p>
+    <!-- LOADER (Make sure 'logo-loader.jpg' is in your folder) -->
+    <div id="preloader">
+        <img src="logo-loader.jpg" alt="Plastophobia">
     </div>
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>15 Tonnes of PET Bottles Recycled</h3>
-        <p class="project-desc">
-          We collected, sorted and recycled over <strong>15,000 KG</strong> of PET bottles,
-          turning them into clean and reusable PET flakes.
-        </p>
-
-        <div class="impact-stats">
-          <div class="stat">
-            <h4>22+ Tonnes</h4>
-            <span>CO₂ Emissions Reduced</span>
-          </div>
-          <div class="stat">
-            <h4>195,000 L</h4>
-            <span>Water Saved</span>
-          </div>
-          <div class="stat">
-            <h4>Zero Waste</h4>
-            <span>Sent to Landfill</span>
-          </div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-recycle"></i> Plastophobia</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
 
-        <p class="project-footer">
-          Your waste becomes our responsibility. Together, we make Earth breathe easier.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOOD CAUSES -->
-  <section class="good-causes">
-    <div class="gc-header">
-      <h2>Why Recycling PET Matters</h2>
-      <p>Every bottle we recycle saves our planet a little more.</p>
-    </div>
-
-    <div class="gc-grid">
-      <div class="gc-card">
-        <h3>🌍 Less Pollution</h3>
-        <p>Recycling reduces landfill waste and keeps plastic away from soil & oceans.</p>
-      </div>
-
-      <div class="gc-card">
-        <h3>🌱 CO₂ Reduction</h3>
-        <p>Every tonne of PET recycled saves over 1.5 tonnes of carbon emissions.</p>
-      </div>
-
-      <div class="gc-card">
-        <h3>💧 Water Conservation</h3>
-        <p>Recycling avoids the heavy water usage needed for producing new plastic.</p>
-      </div>
-
-      <div class="gc-card">
-        <h3>♻️ Circular Economy</h3>
-        <p>Recycled PET becomes raw material for new products — zero waste.</p>
-      </div>
-
-      <div class="gc-card">
-        <h3>🐾 Protects Wildlife</h3>
-        <p>Prevents ocean animals from eating or getting trapped in plastic waste.</p>
-      </div>
-
-      <div class="gc-card">
-        <h3>🌤 Cleaner Air</h3>
-        <p>Lower production pollution means better air quality for everyone.</p>
-      </div>
-    </div>
-
-    <p class="gc-bottom-text">
-      Plastophobia isn’t just a recycling initiative — it’s our promise to give the planet a second chance.
-    </p>
-  </section>
-
-  <!-- MISSION -->
-  <section class="mission">
-    <div class="mission-inner">
-      <h2>Our Mission</h2>
-
-      <p class="mission-text">
-        At Plastophobia, we believe every discarded bottle carries a second life —  
-        a life where waste becomes worth, where plastic returns as purpose,  
-        and where the planet breathes a little easier because of us.  
-        This isn’t just recycling… it’s our quiet promise to the earth  
-        that we will not let her choke on what we create.
-      </p>
-
-      <h3>Our Goals</h3>
-
-      <ul class="mission-goals">
-        <li>♻️ To recycle over <strong>100+ tonnes</strong> of PET plastic in the next few years.</li>
-        <li>🌱 To reduce CO₂ emissions through clean & responsible recycling.</li>
-        <li>💧 To conserve lakhs of litres of water by preventing new plastic production.</li>
-        <li>🌍 To build a circular economy where plastic is reused, not wasted.</li>
-        <li>🙌 To support local workers, empower communities and create green jobs.</li>
-        <li>🐾 To protect forests, oceans and wildlife from plastic pollution.</li>
-        <li>🔥 To inspire India’s youth to choose sustainability every single day.</li>
-      </ul>
-
-      <p class="mission-closing">
-        Every bottle we save is a small victory.  
-        Every flake we create is a step toward hope.  
-        And every action we take is a quiet revolution —  
-        <strong>one that begins with us.</strong>
-      </p>
-    </div>
-  </section>
-
-  <!-- MINI GALLERY PREVIEW -->
-  <section class="gallery-preview">
-    <div class="gallery-preview-inner">
-      <div class="gp-text">
-        <h2>Inside Our Factory</h2>
-        <p>See how bottles become flakes and flakes become possibilities.</p>
-        <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
-      </div>
-      <div class="gp-grid">
-        <div class="gp-item tilt">
-          <img src="factory 1.jpg" alt="Factory image 1">
+    <!-- HERO -->
+    <header class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://cdn.coverr.co/videos/coverr-plastic-waste-on-beach-5390/1080p.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Turning Waste <br> Into Worth</h1>
+            <p style="max-width: 700px; margin: 0 auto 40px; font-size: 18px; opacity: 0.9;">Plastophobia is a next-gen initiative transforming discarded plastic into meaningful resources.</p>
+            <a href="services.html" class="btn-main">Explore Our Work</a>
         </div>
-        <div class="gp-item tilt">
-          <img src="factory 2.jpg" alt="Factory image 2">
+    </header>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="stat-card" data-aos="zoom-in">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Tonnes Recycled</div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-number">22.5</div>
+            <div class="stat-label">CO2 Saved (Tonnes)</div>
+        </div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-number">195k</div>
+            <div class="stat-label">Liters Water Saved</div>
+        </div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-number">Zero</div>
+            <div class="stat-label">Waste to Landfill</div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© Plastophobia – Reshaping the Planet</p>
-  </footer>
+    <footer>
+        <p>© 2025 Plastophobia – Reshaping the Planet</p>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // --- FAILSAFE LOADER SCRIPT ---
+        // Normal load
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+        
+        // Force remove after 3 seconds (Fix for blank screen)
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 3000);
+
+        // Mobile Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '20px';
+        });
+    </script>
 </body>
 </html>
