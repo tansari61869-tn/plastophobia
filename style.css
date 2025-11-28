@@ -510,14 +510,23 @@ body {
   transform: translate(-20%, -20%);
 }
 
-/* logo image */
-.connect-dot img {
+
   position: relative;
   z-index: 1;
   width: 32px;
   height: 32px;
   object-fit: contain;
+.connect-dot i {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  color: #0a0a0a;
 }
+
+.connect-dot.ig i { color: #e1306c; }
+.connect-dot.li i { color: #0a66c2; }
+.connect-dot.wa i { color: #25d366; }
+
 
 /* brand tints */
 .connect-dot.ig {
@@ -691,11 +700,11 @@ span {
     pointer-events: none;
   }
 }
-/* === FULLSCREEN PNG LOADER === */
+/* === FULLSCREEN VIDEO PRELOADER === */
 
 #preloader {
   position: fixed;
-  inset: 0;
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0; */
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -704,31 +713,27 @@ span {
   overflow: hidden;
 }
 
-/* PNG logo */
-.loader-image {
-  width: 200px;
-  height: auto;
-  opacity: 0.95;
-  animation: pulseLoader 1.8s ease-in-out infinite;
+/* video takes full screen */
+#preloader .loader-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;        /* or 'contain' if you don't want crop */
 }
 
-/* breathing animation */
-@keyframes pulseLoader {
-  0% {
-    transform: scale(0.96);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* fade when JS adds .fade-out */
+/* when we add .fade-out class from JS, run the fadeOutLoader animation */
 #preloader.fade-out {
   animation: fadeOutLoader 0.6s ease forwards;
 }
 
+/* OPTIONAL SAFETY: if old styles exist somewhere */
+.preloader,
+.preloader-logo,
+.loader-caption {
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+  display: none;            /* caption completely off */
+}
 
 
 /* IMPACT SECTION (ABOUT PAGE) */
@@ -1234,51 +1239,4 @@ section + section {
   .impact-visual img {
     max-height: 320px;
   }
-}
-/* RECYCLE LOADER FOR INNER PAGES */
-
-.preloader-recycle {
-  position: fixed;
-  inset: 0;
-  background: #f6fff7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.recycle-loader {
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-
-.recycle-ring,
-.recycle-ring-2 {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  border: 4px solid rgba(0, 160, 80, 0.25);
-  border-top-color: #1ab25a;
-  animation: spin 1.1s linear infinite;
-}
-
-.recycle-ring-2 {
-  border-bottom-color: #34d399;
-  border-top-color: transparent;
-  animation-duration: 1.6s;
-}
-
-.recycle-icon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-/* generic fade-out (works for home + inner) */
-.preloader.fade-out {
-  animation: fadeOutLoader 0.6s ease forwards;
 }
