@@ -471,6 +471,8 @@ body {
 }
 /* CONNECT WITH US – animated social dots */
 
+/* CONNECT WITH US – animated social dots */
+
 .connect-wrapper {
   margin: 30px 0 10px;
   display: flex;
@@ -479,20 +481,15 @@ body {
 }
 
 .connect-dot {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #ffffff, #c6ffd9);
-  box-shadow: 0 0 25px rgba(0, 255, 120, 0.55);
+  background: radial-gradient(circle at 30% 20%, #ffffff, #e8ffe9);
+  box-shadow: 0 0 25px rgba(0, 200, 100, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #0a8a3d;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-size: 15px;
   position: relative;
   overflow: hidden;
   animation: float-bob 3s ease-in-out infinite alternate,
@@ -500,32 +497,77 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* subtle inner shine */
+/* inner highlight */
 .connect-dot::before {
   content: "";
   position: absolute;
   width: 140%;
   height: 140%;
-  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.65), transparent 60%);
-  opacity: 0.6;
-  transform: translate(-15%, -15%);
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.7), transparent 60%);
+  opacity: 0.7;
+  transform: translate(-20%, -20%);
 }
 
-/* brand-ish tint variations */
+/* logo wrapper */
+.social-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+/* logo image */
+.social-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* brand-ish color tints */
 .connect-dot.ig {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #ffd2ff);
+  background: radial-gradient(circle at 30% 20%, #ffffff, #ffd8ff);
   box-shadow: 0 0 25px rgba(255, 105, 180, 0.55);
 }
 
 .connect-dot.li {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #d4f1ff);
+  background: radial-gradient(circle at 30% 20%, #ffffff, #d9f0ff);
   box-shadow: 0 0 25px rgba(0, 140, 255, 0.55);
 }
 
 .connect-dot.wa {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #c6ffd9);
+  background: radial-gradient(circle at 30% 20%, #ffffff, #d6ffe7);
   box-shadow: 0 0 25px rgba(0, 255, 120, 0.55);
 }
+
+/* HOVER – same feel as top icons (scale + rotate) */
+.connect-dot:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 180, 90, 0.8);
+}
+
+.connect-dot:hover .social-icon {
+  transform: scale(1.2) rotate(8deg);
+}
+
+/* mobile tweak */
+@media (max-width: 600px) {
+  .connect-wrapper {
+    gap: 22px;
+  }
+
+  .connect-dot {
+    width: 65px;
+    height: 65px;
+  }
+
+  .social-icon img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
 
 /* hover love */
 .connect-dot:hover {
@@ -574,14 +616,18 @@ body {
   padding: 18px;
   border-radius: 20px;
   background: #f2f2f2;
-  transition: transform 0.4s ease, background 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 180, 90, 0.25);
+  transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
+  animation: float-bob 3s ease-in-out infinite alternate,
+             soft-glow 2.8s ease-in-out infinite alternate;
 }
 
-/* Animations */
+/* hover you already had – keep this same */
 .contact-btn:hover .icon {
   transform: scale(1.2) rotate(8deg);
   background: #111;
   color: #fff;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
 }
 
 .contact-btn:hover span {
@@ -655,6 +701,41 @@ span {
     pointer-events: none;
   }
 }
+/* === FULLSCREEN VIDEO PRELOADER === */
+
+#preloader {
+  position: fixed;
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0; */
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* video takes full screen */
+#preloader .loader-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;        /* or 'contain' if you don't want crop */
+}
+
+/* when we add .fade-out class from JS, run the fadeOutLoader animation */
+#preloader.fade-out {
+  animation: fadeOutLoader 0.6s ease forwards;
+}
+
+/* OPTIONAL SAFETY: if old styles exist somewhere */
+.preloader,
+.preloader-logo,
+.loader-caption {
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+  display: none;            /* caption completely off */
+}
+
 
 /* IMPACT SECTION (ABOUT PAGE) */
 .impact {
