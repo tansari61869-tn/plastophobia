@@ -44,7 +44,6 @@ body {
   object-fit: cover;
 }
 
-
 .loader-caption {
   margin-top: 18px;
   font-size: 13px;
@@ -272,6 +271,7 @@ body {
   object-fit: cover;
   max-height: 180px;
 }
+
 .g-overlay span {
   color: #ffffff;
   font-weight: 600;
@@ -279,7 +279,6 @@ body {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
   font-size: 14px;
 }
-
 
 /* TILT EFFECT */
 .tilt {
@@ -421,10 +420,9 @@ body {
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 12px;
-  color: #ffffff;              /* important */
+  color: #ffffff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
-
 
 .video-note {
   margin-top: 10px;
@@ -469,9 +467,6 @@ body {
   font-size: 18px;
   transition: 0.3s ease;
 }
-/* CONNECT WITH US – animated social dots */
-
-/* CONNECT WITH US – animated social dots */
 
 /* CONNECT WITH US – animated social circles */
 
@@ -505,17 +500,12 @@ body {
   position: absolute;
   width: 140%;
   height: 140%;
-  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.7), transparent 60%);
+  background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.7), transparent 60%);
   opacity: 0.7;
   transform: translate(-20%, -20%);
 }
 
-
-  position: relative;
-  z-index: 1;
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+/* icons inside dots */
 .connect-dot i {
   position: relative;
   z-index: 1;
@@ -523,12 +513,12 @@ body {
   color: #0a0a0a;
 }
 
+/* brand icon colors */
 .connect-dot.ig i { color: #e1306c; }
 .connect-dot.li i { color: #0a66c2; }
 .connect-dot.wa i { color: #25d366; }
 
-
-/* brand tints */
+/* brand tints (background glow) */
 .connect-dot.ig {
   background: radial-gradient(circle at 30% 20%, #ffffff, #ffd8ff);
   box-shadow: 0 0 25px rgba(255, 105, 180, 0.55);
@@ -548,30 +538,6 @@ body {
 .connect-dot:hover {
   transform: translateY(-6px) scale(1.05);
   box-shadow: 0 0 40px rgba(0, 180, 90, 0.8);
-}
-
-@media (max-width: 600px) {
-  .connect-wrapper {
-    gap: 22px;
-  }
-
-  .connect-dot {
-    width: 65px;
-    height: 65px;
-  }
-
-  .connect-dot img {
-    width: 26px;
-    height: 26px;
-  }
-}
-
-
-
-/* hover love */
-.connect-dot:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 0 40px rgba(0, 180, 90, 0.75);
 }
 
 /* float animation */
@@ -596,7 +562,6 @@ body {
   }
 }
 
-/* mobile tweak */
 @media (max-width: 600px) {
   .connect-wrapper {
     gap: 22px;
@@ -605,10 +570,14 @@ body {
   .connect-dot {
     width: 60px;
     height: 60px;
-    font-size: 13px;
+  }
+
+  .connect-dot i {
+    font-size: 26px;
   }
 }
 
+/* CONTACT ICONS (MAIL / CALL / LOCATION) */
 
 .icon {
   font-size: 45px;
@@ -639,6 +608,7 @@ span {
   font-size: 16px;
 }
 
+/* old social row (if ever reused) */
 .social-row {
   display: flex;
   gap: 40px;
@@ -700,41 +670,12 @@ span {
     pointer-events: none;
   }
 }
-/* === FULLSCREEN VIDEO PRELOADER === */
 
-#preloader {
-  position: fixed;
-  inset: 0;                 /* top:0; right:0; bottom:0; left:0; */
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-/* video takes full screen */
-#preloader .loader-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;        /* or 'contain' if you don't want crop */
-}
-
-/* when we add .fade-out class from JS, run the fadeOutLoader animation */
+/* generic fade-out class, if JS adds .fade-out on any loader */
+.preloader.fade-out,
 #preloader.fade-out {
   animation: fadeOutLoader 0.6s ease forwards;
 }
-
-/* OPTIONAL SAFETY: if old styles exist somewhere */
-.preloader,
-.preloader-logo,
-.loader-caption {
-  box-shadow: none;
-  border-radius: 0;
-  background: transparent;
-  display: none;            /* caption completely off */
-}
-
 
 /* IMPACT SECTION (ABOUT PAGE) */
 .impact {
@@ -1205,7 +1146,6 @@ section + section {
 
   .hero-content {
     margin-left: 5%;
-    margin-right: 5%;
   }
 
   .hero h1 {
@@ -1240,3 +1180,4 @@ section + section {
     max-height: 320px;
   }
 }
+

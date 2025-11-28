@@ -1,13 +1,13 @@
-// PRELOADER FADE OUT
+// PRELOADER SYSTEM (supports unique loader per page)
 window.addEventListener("load", () => {
   const loader = document.getElementById("preloader");
   if (!loader) return;
 
-  // smooth fade-out
+  // Trigger fade-out animation
   loader.classList.add("fade-out");
 
-  // completely remove after fade animation
+  // Remove from DOM after fade (same duration as CSS)
   setTimeout(() => {
     loader.style.display = "none";
-  }, 700); // should match fadeOut duration
+  }, 700);
 });
