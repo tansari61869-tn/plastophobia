@@ -468,76 +468,116 @@ body {
   transition: 0.3s ease;
 }
 
-/* CONNECT WITH US – animated social circles */
+/* --- Social Button Hover Effects --- */
 
 .connect-wrapper {
-  margin: 30px 0 10px;
   display: flex;
   justify-content: center;
-  gap: 35px;
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 
+/* The Button Circle */
 .connect-dot {
-  width: 80px;
-  height: 80px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #ffffff, #e8ffe9);
-  box-shadow: 0 0 25px rgba(0, 200, 100, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
   position: relative;
-  overflow: hidden;
-  animation: float-bob 3s ease-in-out infinite alternate,
-             soft-glow 2.8s ease-in-out infinite alternate;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease; /* Smooth scaling */
 }
 
-/* inner highlight */
-.connect-dot::before {
+/* The Icons inside the button */
+.connect-dot i {
+  font-size: 24px;
+  color: #333; /* Dark grey icon initially */
+  transition: color 0.3s ease;
+}
+
+/* Hover: Scale up slightly */
+.connect-dot:hover {
+  transform: scale(1.1);
+}
+
+/* Hover: Icon turns white */
+.connect-dot:hover i {
+  color: #fff;
+}
+
+/* --- TOOLTIP (The text bubble) --- */
+.connect-dot .tooltip {
+  position: absolute;
+  top: -40px; /* Initial position */
+  background-color: #fff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px; /* Rounded pill shape */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+/* The little triangle arrow below the tooltip */
+.connect-dot .tooltip::before {
   content: "";
   position: absolute;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.7), transparent 60%);
-  opacity: 0.7;
-  transform: translate(-20%, -20%);
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: inherit transparent transparent transparent; /* Inherits color from parent */
 }
 
-/* icons inside dots */
-.connect-dot i {
-  position: relative;
-  z-index: 1;
-  font-size: 32px;
-  color: #0a0a0a;
+/* Show Tooltip on Hover */
+.connect-dot:hover .tooltip {
+  opacity: 1;
+  top: -55px; /* Moves up */
 }
 
-/* brand icon colors */
-.connect-dot.ig i { color: #e1306c; }
-.connect-dot.li i { color: #0a66c2; }
-.connect-dot.wa i { color: #25d366; }
+/* --- BRAND COLORS --- */
 
-/* brand tints (background glow) */
-.connect-dot.ig {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #ffd8ff);
-  box-shadow: 0 0 25px rgba(255, 105, 180, 0.55);
+/* Instagram */
+.connect-dot.ig:hover {
+  background: #e1306c; /* Or use linear-gradient(45deg, #f09433, #bc1888) */
+}
+.connect-dot.ig .tooltip {
+  background: #e1306c;
+}
+.connect-dot.ig .tooltip::before {
+  border-top-color: #e1306c;
 }
 
-.connect-dot.li {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #d9f0ff);
-  box-shadow: 0 0 25px rgba(0, 140, 255, 0.55);
+/* LinkedIn */
+.connect-dot.li:hover {
+  background: #0077b5;
+}
+.connect-dot.li .tooltip {
+  background: #0077b5;
+}
+.connect-dot.li .tooltip::before {
+  border-top-color: #0077b5;
 }
 
-.connect-dot.wa {
-  background: radial-gradient(circle at 30% 20%, #ffffff, #d6ffe7);
-  box-shadow: 0 0 25px rgba(0, 255, 120, 0.55);
+/* WhatsApp */
+.connect-dot.wa:hover {
+  background: #25D366;
 }
-
-/* hover */
-.connect-dot:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 0 40px rgba(0, 180, 90, 0.8);
+.connect-dot.wa .tooltip {
+  background: #25D366;
+}
+.connect-dot.wa .tooltip::before {
+  border-top-color: #25D366;
 }
 
 /* float animation */
