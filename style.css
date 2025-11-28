@@ -430,14 +430,13 @@ body {
   opacity: 0.7;
 }
 
-/* CONTACT GRID (OLD LAYOUT – SAFE TO KEEP IF USED) */
+/* CONTACT GRID */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-/* SOCIAL ICONS (OLD NEON STYLE – UNUSED NOW BUT SAFE) */
 .contact-card i {
   font-size: 20px;
   margin-right: 10px;
@@ -468,13 +467,14 @@ body {
   transition: 0.3s ease;
 }
 
-/* --- Social Button Hover Effects --- */
+/* --- Social Button Hover Effects (CORRECTED) --- */
 
 .connect-wrapper {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between buttons */
-  margin-top: 20px;
+  gap: 20px;
+  /* Increased margin-top so tooltip doesn't cover text */
+  margin-top: 60px; 
   padding-bottom: 20px;
 }
 
@@ -489,15 +489,18 @@ body {
   background-color: #ffffff;
   border-radius: 50%;
   text-decoration: none;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease; /* Smooth scaling */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease; 
 }
 
-/* The Icons inside the button */
+/* The Icons inside the button (CORRECTED FOR VISIBILITY) */
 .connect-dot i {
   font-size: 24px;
-  color: #333; /* Dark grey icon initially */
+  color: #333 !important; /* Force color */
+  font-family: "Font Awesome 6 Brands" !important; /* Force font family */
+  font-weight: 400 !important; /* CRITICAL: Brand icons disappear if bold */
   transition: color 0.3s ease;
+  display: inline-block;
 }
 
 /* Hover: Scale up slightly */
@@ -507,24 +510,25 @@ body {
 
 /* Hover: Icon turns white */
 .connect-dot:hover i {
-  color: #fff;
+  color: #fff !important;
 }
 
 /* --- TOOLTIP (The text bubble) --- */
 .connect-dot .tooltip {
   position: absolute;
-  top: -40px; /* Initial position */
+  top: -40px; 
   background-color: #fff;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
   padding: 5px 12px;
-  border-radius: 20px; /* Rounded pill shape */
+  border-radius: 20px; 
   opacity: 0; /* Hidden by default */
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
+  z-index: 100; /* Keeps tooltip on top */
 }
 
 /* The little triangle arrow below the tooltip */
@@ -536,20 +540,20 @@ body {
   transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: inherit transparent transparent transparent; /* Inherits color from parent */
+  border-color: inherit transparent transparent transparent; 
 }
 
 /* Show Tooltip on Hover */
 .connect-dot:hover .tooltip {
   opacity: 1;
-  top: -55px; /* Moves up */
+  top: -55px; 
 }
 
 /* --- BRAND COLORS --- */
 
 /* Instagram */
 .connect-dot.ig:hover {
-  background: #e1306c; /* Or use linear-gradient(45deg, #f09433, #bc1888) */
+  background: #e1306c; 
 }
 .connect-dot.ig .tooltip {
   background: #e1306c;
@@ -1220,4 +1224,3 @@ section + section {
     max-height: 320px;
   }
 }
-
